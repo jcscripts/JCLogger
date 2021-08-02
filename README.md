@@ -1,5 +1,5 @@
 # Logger by JCScripts (PHP)
-Logger by JCScripts is a very simple logging framework for small PHP projects. It helps to save messages into a rolling log file that helps to track of the process execution during run time in PHP.
+Logger by JCScripts is a very simple logging framework for small PHP projects. It helps to save messages into a rolling log file that helps to track of the process execution during run time in PHP. [Click here](https://jcwebtechnologies.com) for more information
 
 > Simple, yet powerful!
 
