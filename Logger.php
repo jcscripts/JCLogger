@@ -1,7 +1,7 @@
 <?php
 /*
  * Logger by JC Scripts - Simple and minimalistic logging framework for PHP
- * Read full documentation at https://jcscripts.online/logger
+ * Read full documentation at https://jcwebtechnologies.com/logger
  * @version v1.0
  * Open source and free to use
  */
@@ -11,33 +11,34 @@ namespace JCScripts
 	{
 		//Default values for core logic. Do not change 
 		const DEBUG = "DEBUG";
-		const INFO = "INFO";
+		const INFO = "INFO ";
 		const WARNING = "WARNING";
 		const ERROR = "ERROR";
 		const FATAL = " FATAL";
 		const DEFAULT_FILE = "JCLogFile.log";
 		
+		private $logFile = null;
 		private $logFileHandler = null;
 		//private $originator = null;
 		
 		// Change to required values accordingly 
 		const LOG_TS_FORMAT = "d-m-Y H:i:s";
 		
-		// Path of output log file along with directory (and extension) 
-		// Spaces are not recommended. Instead use symbols like - _
-		// Example: /application/logs/JCLogfile.log 
-		private $logFile = "";
-		
-		// Automatically called when an instance of Logger class is created 
-		// Declares the log file and initializes required file handler
-		public function __construct()
+		/* 
+		 * Constructor for the logger class
+		 * @params $logFile (String) - Log file name with full path
+		 */
+		 
+		public function __construct($inLogFile)
 		{
-			$this->logFile  =  (!empty(trim($this->logFile))) ? $this->logfile : (self::DEFAULT_FILE);
-			//$this->originator = basename(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0]['file']);
+			$this->logFile = !empty($inLogFile) ? $inLogFile : self::DEFAULT_FILE;
 			$this->preHook();
 		}
 		
-		// Pre hook to declare file handler to open and perform file operation 
+		/*
+		* Pre hook to declare file handler to open and perform file operation 
+		*/
+		
 		public function preHook()
 		{
 			if(null == $this->logFileHandler && !is_resource($this->logFileHandler))
@@ -80,7 +81,7 @@ namespace JCScripts
 		}
 		
 		/*
-		 * Method to log error events arised in an application
+		 * Method to log error events that arise in an application
 		 * @params $message (string) - Log message
 		 * Example: "File xyz.php is missing permissions"
 		 */
