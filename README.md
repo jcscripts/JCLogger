@@ -24,9 +24,9 @@ You can simply integrate JCLogger into your existing following these steps:
 include_once( 'Logger.php' );
 ```
 
-2) Create an instance of Logger class under namespace **JCScripts**
+2) Create an instance of Logger class under namespace **JCScripts** with desired file along with full path as input. If nothing is given, log file with default name will be creeated in the directory where logger has been initiated
 ```php
-$log = new JCScripts\Logger();
+$log = new JCScripts\Logger(__DIR__ . 'logs/MyLogger.log');
 ```
 
 3) Invoke a method of JCLogger on the creted object, based on the type of message that you want to store
@@ -45,7 +45,7 @@ $log->close();
 ```php
 <?php
 include_once('Logger.php');
-$log = new JCScripts\Logger();
+$log = new JCScripts\Logger(__DIR__ . 'logs/MyLogger.log');
 
 function divide($a, $b)
 {
